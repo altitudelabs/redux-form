@@ -5,7 +5,7 @@ const App = ({ children }) => (
   <div>
     <header>
       <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
+      <Link to="/form">Form</Link>
     </header>
 
     <main>
