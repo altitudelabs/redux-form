@@ -1,9 +1,11 @@
 import React from 'react'
-import {Field, reduxForm} from 'redux-form'
+
+import { Field, reduxForm } from './reduxForm'
 import * as validations from './validations'
-import { scrollToFirstError } from './utils'
-import scrollTo from './scrollTo'
-import Input from './Input'
+
+import { attachScrollRef, Input } from './reduxForm/web'
+
+const InputWithScrollPos = attachScrollRef(Input)
 
 const Form = props => {
   const {
@@ -18,7 +20,7 @@ const Form = props => {
       <Field
         name="username"
         type="text"
-        component={scrollTo(Input)}
+        component={InputWithScrollPos}
         label="Username"
         validate={[validations.required, validations.minLength4, validations.maxLength8]}
       />
@@ -68,7 +70,7 @@ const Form = props => {
       <Field
         name="field6"
         type="field6"
-        component={scrollTo(Input)}
+        component={Input}
         label="Field Required"
         validate={[validations.required]}
       />
@@ -142,7 +144,4 @@ const Form = props => {
   )
 }
 
-export default reduxForm({
-  form: 'myForm',
-  onSubmitFail: (errors) => scrollToFirstError(errors),
-})(Form)
+export default reduxForm(Form)

@@ -19,7 +19,12 @@ class FormPage extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.submitHandler} />
+      <Form
+        formName={'myTestForm'}
+        onSubmit={this.submitHandler}
+        type={'web'}
+        scrollToErrors
+      />
     );
   }
 }
