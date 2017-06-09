@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { Field, reduxForm } from './reduxForm'
-import * as validations from './validations'
+import { Field, reduxForm } from '../../lib/reduxForm'
+import { attachScrollRef } from '../../lib/reduxForm/web'
 
-import { attachScrollRef, Input } from './reduxForm/web'
+import * as validations from './validations'
+import Input from './Input'
 
 const InputWithScrollPos = attachScrollRef(Input)
 
